@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         Spinner dropdown = findViewById(R.id.spinner);
         ImageView characterImageView = findViewById(R.id.characterImage);
+        TextView zodiP = findViewById(R.id.textView);
+        TextView today = findViewById(R.id.today);
         TextView horoscope = findViewById(R.id.textView2);
 
         String[] zodiacSigns = {
@@ -41,9 +43,17 @@ public class MainActivity extends AppCompatActivity {
                int characterImageResourceId = HoroscopeDataProvider.getCharacterImageResource(sign);
                if (characterImageResourceId != -1) {
                    characterImageView.setImageResource(characterImageResourceId);
+                   today.setVisibility(View.VISIBLE);
+
                } else {
-                   characterImageView.setImageResource(R.drawable.bgwp);               }
+                   characterImageView.setImageResource(R.drawable.bgwp);
+                   today.setVisibility(View.INVISIBLE);
+               }
+
+               zodiP.setText(HoroscopeDataProvider.getZodiacName(sign)+" "+HoroscopeDataProvider.getZodiacPeriod(sign));
            }
+
+
 
            @Override
            public void onNothingSelected(AdapterView<?> adapterView) {
@@ -61,19 +71,34 @@ public class MainActivity extends AppCompatActivity {
 
 class HoroscopeDataProvider {
 
+    private static final String[][] zodiacData = {
+            {"Aries", "Mar 21 - Apr 20"},
+            {"Taurus", "Apr 21 - May 20"},
+            {"Gemini", "May 21 - Jun 20"},
+            {"Cancer", "Jun 21 - Jul 22"},
+            {"Leo", "Jul 23 - Aug 22"},
+            {"Virgo", "Aug 23 - Sep 22"},
+            {"Libra", "Sep 23 - Oct 22"},
+            {"Scorpio", "Oct 23 - Nov 21"},
+            {"Sagittarius", "Nov 22 - Dec 21"},
+            {"Capricorn", "Dec 22 - Jan 19"},
+            {"Aquarius", "Jan 20 - Feb 18"},
+            {"Pisces", "Feb 19 - Mar 20"}
+    };
+
     private static final String[] horoscopes = {
-            "Today's horoscope for Aries (Naruto):\nBelieve it! Today's a day for bold decisions and ninja adventures.",
-            "Today's horoscope for Taurus (Goku):\nGet ready to power up! You'll face challenges, but you'll overcome them like a Saiyan.",
-            "Today's horoscope for Gemini (Luffy):\nAhoy there! Today is a day for making new friends and setting sail for exciting journeys.",
-            "Today's horoscope for Cancer\n(Sailor Moon):\nIn the name of the moon, today's a day for love, friendship, and moonlit magic.",
-            "Today's horoscope for Leo (Vegeta):\nToday, you'll surpass your limits and become the true prince of all Saiyans.",
-            "Today's horoscope for Virgo (Kaneki):\nEmbrace your inner strength. Today might be tough, but you have the power to overcome.",
-            "Today's horoscope for Libra (Yugi):\nIt's time to duel! Balance your life and tackle challenges with the heart of the cards.",
-            "Today's horoscope for Scorpio (Sasuke):\nSeek revenge against negativity, and harness your true potential to achieve your goals.",
-            "Today's horoscope for Sagittarius (Ash Ketchum):\nGotta catch 'em all! Today's a day for adventure and meeting new Pokémon.",
-            "Today's horoscope for Capricorn (Levi Ackerman):\nToday, your dedication and hard work will lead you to achieve great heights.",
-            "Today's horoscope for Aquarius (Gon Freecss):\nEmbrace your optimism and set off on new exciting adventures today.",
-            "Today's horoscope for Pisces (Sakura): \nLet your compassion and inner strength guide you through the day. Blossom and heal."
+            "Today's horoscope for Aries\n(Naruto):\n\nBelieve it! Today's a day for bold decisions and ninja adventures.",
+            "Today's horoscope for Taurus\n(Goku):\n\nGet ready to power up! You'll face challenges, but you'll overcome them like a Saiyan.",
+            "Today's horoscope for Gemini\n(Luffy):\n\nAhoy there! Today is a day for making new friends and setting sail for exciting journeys.",
+            "Today's horoscope for Cancer\n(Sailor Moon):\n\nIn the name of the moon, today's a day for love, friendship, and moonlit magic.",
+            "Today's horoscope for Leo\n(Vegeta):\n\nToday, you'll surpass your limits and become the true prince of all Saiyans.",
+            "Today's horoscope for Virgo\n(Kaneki):\n\nEmbrace your inner strength. Today might be tough, but you have the power to overcome.",
+            "Today's horoscope for Libra\n(Yugi):\n\nIt's time to duel! Balance your life and tackle challenges with the heart of the cards.",
+            "Today's horoscope for Scorpio\n(Sasuke):\n\nSeek revenge against negativity, and harness your true potential to achieve your goals.",
+            "Today's horoscope for Sagittarius\n(Ash Ketchum):\n\nGotta catch 'em all! Today's a day for adventure and meeting new Pokémon.",
+            "Today's horoscope for Capricorn\n(Levi Ackerman):\n\nToday, your dedication and hard work will lead you to achieve great heights.",
+            "Today's horoscope for Aquarius\n(Gon Freecss):\n\nEmbrace your optimism and set off on new exciting adventures today.",
+            "Today's horoscope for Pisces\n(Sakura):\n\nLet your compassion and inner strength guide you through the day. Blossom and heal."
     };
 
     public static String getHoroscopeForSign(String sign) {
@@ -169,4 +194,22 @@ class HoroscopeDataProvider {
 
         return resourceId;
     }
+
+    public static String getZodiacName(String sign) {
+        for (String[] zodiac : zodiacData) {
+            if (zodiac[0].equalsIgnoreCase(sign)) {
+                return zodiac[0];
+            }
+        }
+        return "";
+    }
+    public static String getZodiacPeriod(String sign) {
+        for (String[] zodiac : zodiacData) {
+            if (zodiac[0].equalsIgnoreCase(sign)) {
+                return zodiac[1];
+            }
+        }
+        return "";
+    }
+
 }
