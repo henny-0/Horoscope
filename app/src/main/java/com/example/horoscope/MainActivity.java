@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         TextView zodiP = findViewById(R.id.textView);
         TextView today = findViewById(R.id.today);
         TextView horoscope = findViewById(R.id.textView2);
+        TextView selectSun = findViewById(R.id.textView3);
 
         String[] zodiacSigns = {
                 "Please select a Zodiac Sign",
@@ -31,8 +33,37 @@ public class MainActivity extends AppCompatActivity {
         };
 
         ArrayAdapter <String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, zodiacSigns);
+
         dropdown.setAdapter(adapter);
 
+        Button updateButton = findViewById(R.id.updateButton);
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int selectedItemPosition = dropdown.getSelectedItemPosition();
+                String sign = zodiacSigns[selectedItemPosition];
+                String getHoroscope = HoroscopeDataProvider.getHoroscopeForSign(sign);
+                horoscope.setText(getHoroscope);
+
+                int characterImageResourceId = HoroscopeDataProvider.getCharacterImageResource(sign);
+                if (characterImageResourceId != -1) {
+                    characterImageView.setImageResource(characterImageResourceId);
+                    today.setVisibility(View.VISIBLE);
+                    horoscope.setVisibility(View.VISIBLE);
+                    zodiP.setVisibility(View.VISIBLE);
+                } else {
+                    characterImageView.setImageResource(R.drawable.bgwp);
+                    today.setVisibility(View.INVISIBLE);
+                    horoscope.setVisibility(View.INVISIBLE);
+                    zodiP.setVisibility(View.INVISIBLE);
+                }
+
+                zodiP.setText(HoroscopeDataProvider.getZodiacName(sign) + " " + HoroscopeDataProvider.getZodiacPeriod(sign));
+            }
+        });
+
+/*
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
            @Override
            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -44,29 +75,24 @@ public class MainActivity extends AppCompatActivity {
                if (characterImageResourceId != -1) {
                    characterImageView.setImageResource(characterImageResourceId);
                    today.setVisibility(View.VISIBLE);
+                   selectSun.setVisibility(View.INVISIBLE);
 
                } else {
                    characterImageView.setImageResource(R.drawable.bgwp);
                    today.setVisibility(View.INVISIBLE);
+                   selectSun.setVisibility(View.VISIBLE);
                }
 
                zodiP.setText(HoroscopeDataProvider.getZodiacName(sign)+" "+HoroscopeDataProvider.getZodiacPeriod(sign));
            }
-
-
 
            @Override
            public void onNothingSelected(AdapterView<?> adapterView) {
 
            }
        });
-
-
-
+*/
     }
-
-
-
 }
 
 class HoroscopeDataProvider {
