@@ -113,19 +113,20 @@ class HoroscopeDataProvider {
     };
 
     private static final String[] horoscopes = {
-            "Today's horoscope for Aries\n(Naruto):\n\nBelieve it! Today's a day for bold decisions and ninja adventures.",
-            "Today's horoscope for Taurus\n(Goku):\n\nGet ready to power up! You'll face challenges, but you'll overcome them like a Saiyan.",
-            "Today's horoscope for Gemini\n(Luffy):\n\nAhoy there! Today is a day for making new friends and setting sail for exciting journeys.",
-            "Today's horoscope for Cancer\n(Sailor Moon):\n\nIn the name of the moon, today's a day for love, friendship, and moonlit magic.",
-            "Today's horoscope for Leo\n(Vegeta):\n\nToday, you'll surpass your limits and become the true prince of all Saiyans.",
-            "Today's horoscope for Virgo\n(Kaneki):\n\nEmbrace your inner strength. Today might be tough, but you have the power to overcome.",
-            "Today's horoscope for Libra\n(Yugi):\n\nIt's time to duel! Balance your life and tackle challenges with the heart of the cards.",
-            "Today's horoscope for Scorpio\n(Sasuke):\n\nSeek revenge against negativity, and harness your true potential to achieve your goals.",
-            "Today's horoscope for Sagittarius\n(Ash Ketchum):\n\nGotta catch 'em all! Today's a day for adventure and meeting new Pokémon.",
-            "Today's horoscope for Capricorn\n(Levi Ackerman):\n\nToday, your dedication and hard work will lead you to achieve great heights.",
-            "Today's horoscope for Aquarius\n(Gon Freecss):\n\nEmbrace your optimism and set off on new exciting adventures today.",
-            "Today's horoscope for Pisces\n(Sakura):\n\nLet your compassion and inner strength guide you through the day. Blossom and heal."
+            "Today's horoscope for Aries\n(Eren Yeager):\n\n\"If you don't fight, you can't win!\" \n\nToday is a day to be brave and take action.",
+            "Today's horoscope for Taurus\n(Kyo Sohma):\n\n\"I'm not running away. I'm just living my life.\"\n\nToday is a day to be true to yourself and stand your ground.",
+            "Today's horoscope for Gemini\n(Kagami Taiga):\n\n\"I'll show you something even better than miracles!\"\n\nToday is a day to push yourself to new heights.",
+            "Today's horoscope for Cancer\n(Usagi Tsukino):\n\n\"In the name of the moon, I will punish you!\"\n\nToday is a day to protect those you love and fight for what's right.",
+            "Today's horoscope for Leo\n(Natsu Dragneel):\n\n\"I'm all fired up!\"\n\nToday is a day to be confident and passionate.",
+            "Today's horoscope for Virgo\n(Shino Aburame):\n\n\"The only way to truly escape the mundane is for you to constantly be evolving.\"\n\nToday is a day to focus on self-improvement.",
+            "Today's horoscope for Libra\n(Yukino Aguria):\n\n\"I believe that the world is full of beautiful things like friendship, magic, and dreams.\"\n\nToday is a day to appreciate the beauty in life.",
+            "Today's horoscope for Scorpio\n(Itachi Uchiha):\n\n\"People live their lives bound by what they accept as correct and true. That's how they define 'reality'. But what does it mean to be 'correct' or 'true'? Merely vague concepts... their 'reality' may all be a mirage.\"\n\nToday is a day to question your assumptions and seek the truth.",
+            "Today's horoscope for Sagittarius\n(Monkey D. Luffy):\n\n\"I don't want to conquer anything. I just think that the guy with the most freedom in this ocean is the Pirate King!\"\n\nToday is a day to embrace your sense of adventure and explore new possibilities.",
+            "Today's horoscope for Capricorn\n(Levi Ackerman):\n\n\"The only thing we're allowed to do is believe. We can't change anything.\"\n\nToday is a day to stay focused on your goals and work hard towards achieving them.",
+            "Today's horoscope for Aquarius\n(Haruka Nanase):\n\n\"I swim because I want to swim.\"\n\nToday is a day to follow your passions and do what makes you happy.",
+            "Today's horoscope for Pisces\n(Nana Osaki):\n\n\"I'm not interested in ordinary people. But if any of you are aliens, time-travelers, or espers, please come see me. That is all!\"\n\nToday is a day to embrace your unique qualities and let your creativity shine."
     };
+
 
     public static String getHoroscopeForSign(String sign) {
         int index = -1;
@@ -181,40 +182,40 @@ class HoroscopeDataProvider {
         int resourceId = -1;
         switch (sign) {
             case "Aries":
-                resourceId = R.drawable.naruto; // Replace with the actual image resource for Naruto
+               resourceId = R.drawable.erenyeager;
                 break;
             case "Taurus":
-                resourceId = R.drawable.goku; // Replace with the actual image resource for Goku
+               resourceId = R.drawable.kyosohma;
                 break;
             case "Gemini":
-                resourceId = R.drawable.luffy; // Replace with the actual image resource for Monkey D. Luffy
+                resourceId = R.drawable.kagamitaiga;
                 break;
             case "Cancer":
-                resourceId = R.drawable.sailor_moon; // Replace with the actual image resource for Sailor Moon
+                resourceId = R.drawable.sailor_moon;
                 break;
             case "Leo":
-                resourceId = R.drawable.vegeta; // Replace with the actual image resource for Vegeta
+                resourceId = R.drawable.natsudragneel;
                 break;
             case "Virgo":
-                resourceId = R.drawable.kaneki; // Replace with the actual image resource for Kaneki Ken
+                resourceId = R.drawable.shinoaburame;
                 break;
             case "Libra":
-                resourceId = R.drawable.yugi_mutou; // Replace with the actual image resource for Yugi Mutou
+                resourceId = R.drawable.yukinoaguria;
                 break;
             case "Scorpio":
-                resourceId = R.drawable.sasuke; // Replace with the actual image resource for Sasuke Uchiha
+                resourceId = R.drawable.itachiuchiha;
                 break;
             case "Sagittarius":
-                resourceId = R.drawable.ash_ketchum; // Replace with the actual image resource for Ash Ketchum
+                resourceId = R.drawable.luffy;
                 break;
             case "Capricorn":
-                resourceId = R.drawable.levi; // Replace with the actual image resource for Levi Ackerman
+                resourceId = R.drawable.levi;
                 break;
             case "Aquarius":
-                resourceId = R.drawable.gon_freecss; // Replace with the actual image resource for Gon Freecss
+               resourceId = R.drawable.harukananase;
                 break;
             case "Pisces":
-                resourceId = R.drawable.sakura_haruno; // Replace with the actual image resource for Sakura Haruno
+               resourceId = R.drawable.nanaosaki;
                 break;
         }
 
